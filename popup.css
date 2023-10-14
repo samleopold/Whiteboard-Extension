@@ -1,122 +1,107 @@
-/* popup.css */
-
-/* Global styles */
-/* popup.css */
-
-/* Global styles */
 body {
-    font-family: Georgia, serif;
-    margin: 0;
-    padding: 0;
-    background-color: #FAE7B5; /* Set the background color of the entire popup */
-  }
-  
-  /* Center and style the title */
-  h1 {
-    font-family: Georgia, serif;
-    text-align: center;
-    font-size: 20px;
-    margin: 5px;
-  }
-  
-  .mode-container {
-    background-color: transparent; /* Make the mode container background transparent */
-    padding: 20px;
-    text-align: center;
-  }
-  
-  /* Rest of your existing CSS styles */
-  
-  
-  
-  .button-container {
-    margin-top: 20px;
-    background-color: #FAE7B5; /* Set the background color for button containers */
-    padding: 0; /* Remove padding to maintain the original spacing */
-  }
-  
-  .button-container button {
-    background-color: #5C3E60; /* Background color of the buttons */
-    color: #fff; /* Text color of the buttons */
-    padding: 10px 20px; /* Padding around the text */
-    border: none;
-    cursor: pointer;
-    border-radius: 5px; /* Rounded corners */
-    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for color changes */
-  }
-  
-  .button-container button:hover {
-    background-color: #3A2340; /* Background color on hover */
-    color: #fff; /* Text color on hover */
-  }
-  
-  /* Style the download buttons */
-  .button-container button[id^="download"] {
-    background-color: #0073e6; /* Download buttons' background color */
-  }
-  
-  .button-container button[id^="download"]:hover {
-    background-color: #005cbf; /* Download buttons' background color on hover */
-  }
-  
-  /* Style the switch buttons */
-  .button-container button[id^="switch"] {
-    background-color: #4CAF50; /* Switch buttons' background color */
-  }
-  
-  .button-container button[id^="switch"]:hover {
-    background-color: #45a647; /* Switch buttons' background color on hover */
-  }
-  
-  .button-container label {
-    font-weight: bold;
-    display: block;
-    margin-bottom: 5px;
-  }
-  
-  .button-container label[for="penColorPicker"] {
-    position: absolute;
-    top: 462px;
-    left: 124px;
-  }
-  
-  .button-container label[for="penWidthRange"] {
-    position: absolute;
-    top: 468px;
-    left: 205px;
-  }
-  
-  .button-container label[for="downloadCanvasButton"] {
-    font-weight: bold;
-    margin-top: 20px;
-  }
-  
-  #noteTextarea {
-    font-family: Georgia, sans-serif; /* Replace 'Your Font Name' with the desired font family */
-    background-color: #ffffff;
-    width: 300px; /* Set the desired width */
-    height: 200px; /* Set the desired height */
-    border: 2px solid #5C3E60; /* Add a 2px solid border with a custom color */
-    border-radius: 5px; /* Add rounded corners to the border */
-  }
-  
-  #drawCanvas {
-    background-color: #ffffff;
-    border: 2px solid #5C3E60; /* Add a 2px solid border with a custom color */
-    border-radius: 5px; /* Add rounded corners to the border */
-  }
-  
+  font-family: Georgia, serif;
+  margin: 0;
+  padding: 0;
+  background-color: #FAE7B5; 
+}
 
-  #penRadiusOverlay {
-    position: absolute;
-    background-color: rgba(92, 62, 96, 0.5); /* Semi-transparent background color */
-    border: 1px solid #495633;
-    border-radius: 50%; /* Make it a circle */
-    display: none; /* Initially hidden */
-    pointer-events: none; /* Prevents interference with mouse events */
-  }
 
-  /* Add styles for the orange box */
+h1 {
+  font-family: Georgia, serif;
+  text-align: center;
+  font-size: 20px;
+  margin: 5px;
+}
 
-  
-  
+
+.mode-container {
+  background-color: transparent; 
+  padding: 20px;
+  text-align: center;
+}
+
+
+.button-container {
+  margin-top: 20px;
+  background-color: #FAE7B5;
+  padding: 0; 
+}
+
+.button-container button {
+  background-color: #5C3E60;
+  color: #fff; 
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px; 
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.button-container button:hover {
+  background-color: #3A2340; 
+  color: #fff;
+}
+
+/* Download Buttons */
+.button-container button[id^="download"] {
+  background-color: #0073e6;
+}
+
+.button-container button[id^="download"]:hover {
+  background-color: #005cbf; 
+}
+
+/* Switch Buttons */
+.button-container button[id^="switch"] {
+  background-color: #4CAF50;
+}
+
+.button-container button[id^="switch"]:hover {
+  background-color: #45a647; 
+}
+.button-container label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.button-container label[for="penColorPicker"] {
+  position: absolute;
+  top: 462px;
+  left: 124px;
+}
+
+.button-container label[for="penWidthRange"] {
+  position: absolute;
+  top: 468px;
+  left: 205px;
+}
+
+.button-container label[for="downloadCanvasButton"] {
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+#noteTextarea {
+  font-family: Georgia, sans-serif;
+  background-color: #ffffff;
+  width: 300px;
+  height: 200px;
+  border: 2px solid #5C3E60;
+  border-radius: 5px;
+}
+
+#drawCanvas {
+  background-color: #ffffff;
+  border: 2px solid #5C3E60;
+  border-radius: 5px;
+}
+
+#penRadiusOverlay {
+  position: absolute;
+  background-color: rgba(92, 62, 96, 0.5);
+  border: 1px solid #495633;
+  border-radius: 50%;
+  display: none;
+  pointer-events: none;
+}

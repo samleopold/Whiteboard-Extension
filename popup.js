@@ -1,4 +1,4 @@
-// Define your constants and variables
+// Constants and Variables
 const textModeContainer = document.getElementById('textMode');
 const drawModeContainer = document.getElementById('drawMode');
 const noteTextarea = document.getElementById('noteTextarea');
@@ -16,10 +16,12 @@ let penColor = '#000000';
 let penWidth = 5;
 let backgroundColor = '#ffffff'; // Default background color is white
 
+// Save drawing to local storage
 function saveDrawing() {
   localStorage.setItem('drawing', canvas.toDataURL());
 }
 
+// Load drawing from local storage
 function loadDrawing() {
   const savedData = localStorage.getItem('drawing');
   if (savedData) {
@@ -36,6 +38,7 @@ function loadDrawing() {
   }
 }
 
+// Draw on the canvas
 function draw(e) {
   if (!isDrawing || !isDrawingButton) return;
   ctx.strokeStyle = penColor;
@@ -50,6 +53,7 @@ function draw(e) {
   saveDrawing();
 }
 
+// Event Listeners for Drawing
 canvas.addEventListener('mousedown', (e) => {
   isDrawing = true;
   [lastX, lastY] = [e.offsetX, e.offsetY];
@@ -66,16 +70,19 @@ canvas.addEventListener('mouseout', () => {
   saveDrawing();
 });
 
+// Event Listener for Pen Width Range Input
 const penWidthRange = document.getElementById('penWidthRange');
 penWidthRange.addEventListener('input', (e) => {
   penWidth = e.target.value;
 });
 
+// Event Listener for Pen Color Picker
 const penColorPicker = document.getElementById('penColorPicker');
 penColorPicker.addEventListener('input', (e) => {
   penColor = e.target.value;
 });
 
+// Clear Canvas Button
 const clearCanvasButton = document.getElementById('clearCanvasButton');
 clearCanvasButton.addEventListener('click', () => {
   ctx.fillStyle = backgroundColor;
@@ -83,6 +90,7 @@ clearCanvasButton.addEventListener('click', () => {
   localStorage.removeItem('drawing');
 });
 
+// Switch to Draw Mode Button
 const switchToDrawButton = document.getElementById('switchToDraw');
 switchToDrawButton.addEventListener('click', () => {
   isDrawingButton = true;
@@ -91,6 +99,7 @@ switchToDrawButton.addEventListener('click', () => {
   loadDrawing();
 });
 
+// Switch to Text Mode Button
 const switchToTextButton = document.getElementById('switchToText');
 switchToTextButton.addEventListener('click', () => {
   isDrawingButton = false;
@@ -100,10 +109,12 @@ switchToTextButton.addEventListener('click', () => {
   loadNoteText();
 });
 
+// Textarea Blur Event Listener
 noteTextarea.addEventListener('blur', () => {
   localStorage.setItem('noteText', noteTextarea.value);
 });
 
+// Download Text Button
 const downloadTextButton = document.getElementById('downloadTextButton');
 downloadTextButton.addEventListener('click', () => {
   const noteText = noteTextarea.value;
@@ -118,6 +129,7 @@ downloadTextButton.addEventListener('click', () => {
   URL.revokeObjectURL(url);
 });
 
+// Download Canvas Button
 const downloadCanvasButton = document.getElementById('downloadCanvasButton');
 downloadCanvasButton.addEventListener('click', () => {
   const canvasImage = canvas.toDataURL('image/png');
@@ -137,7 +149,7 @@ function loadNoteText() {
   }
 }
 
-
+// Event Listeners for the Pen Radius Overlay
 canvas.addEventListener('mousemove', (e) => {
   const x = e.clientX;
   const y = e.clientY;
@@ -145,7 +157,7 @@ canvas.addEventListener('mousemove', (e) => {
   if (isDrawingButton) {
     // Show the pen radius overlay
     penRadiusOverlay.style.display = 'block';
-    const halfWidth = penWidth / 2; // Half the width of the overlay (radius)
+    const halfWidth = penWidth / 2;
     penRadiusOverlay.style.width = `${2 * halfWidth}px`;
     penRadiusOverlay.style.height = `${2 * halfWidth}px`;
     penRadiusOverlay.style.left = `${x - halfWidth}px`;
@@ -161,7 +173,7 @@ canvas.addEventListener('mouseout', () => {
   penRadiusOverlay.style.display = 'none';
 });
 
-
+// Event Listener for Pen Color Picker
 penColorPicker.addEventListener('input', (e) => {
   // Get the selected color from the input element
   const selectedColor = e.target.value;
@@ -173,7 +185,6 @@ penColorPicker.addEventListener('input', (e) => {
 // Set the initial background color based on the default color
 penRadiusOverlay.style.backgroundColor = penColorPicker.value;
 
-
-
+// Initial Loading of Data
 loadDrawing();
 loadNoteText();
