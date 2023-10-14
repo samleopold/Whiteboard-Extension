@@ -1,0 +1,18 @@
+{
+  "name": "QuickJot",
+  "version": "1.0",
+  "manifest_version": 3,
+  "description": "This extension allows you to take notes while you are browing and download whatever you created",
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["popup.js"],
+      "matches": ["https://*/*"]
+    }
+  ],
+  "permissions": [
+    "activeTab"
+  ]
+}

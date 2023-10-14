@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QuickJot Chrome Extension</title>
+  <link rel="stylesheet" type="text/css" href="popup.css">
+</head>
+
+<body>
+  <div id="extension-container">
+    <h1>QuickJot</h1>
+    <div id="textMode" class="mode-container">
+      <textarea id="noteTextarea" placeholder="Enter your notes here..."></textarea>
+      <div class="button-container">
+        <button id="switchToDraw">Switch to Draw Mode</button>
+        <button id="downloadTextButton">Download text as TXT</button>
+      </div>
+    </div>
+    <div id="drawMode" class="mode-container" style="display: none;">
+      <canvas id="drawCanvas" width="400" height="400" style="border: 1px solid #000000;"></canvas>
+      <div class="button-container">
+        <label for="penColorPicker">Color</label>
+        <input type="color" id="penColorPicker" value="#000000">
+        <label for="penWidthRange">Pen Radius</label>
+        <input type="range" id="penWidthRange" min="1" max="20" value="5">
+        <button id="clearCanvasButton">Clear Canvas</button>
+        <button id="downloadCanvasButton">Download Canvas as PNG</button>
+        <button id="switchToText">Switch to Text Mode</button>
+      </div>
+      <div id="penRadiusOverlay"></div>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+
+</html>
